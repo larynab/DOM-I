@@ -38,29 +38,68 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-const classQuery = document.querySelectorAll('.container');
-console.log(classQuery);
+//const aNameTest = document.getElementsByTagName('a');
+//const aArray = Array.from(aNameTest);
+//aArray.forEach( element => {
+  // console.log(element);
+  // element.textContent = "anchor"; 
+// });
+let selectedNavLinks = document.querySelectorAll("nav a");
+selectedNavLinks.forEach((link, i) => {
+  link.innerHTML = siteContent.nav[`nav-item-${i+1}`];
+})
 
-const aNameTest = document.getElementsByTagName('a');
-const aQuery = document.querySelectorAll('a');
-const aArray = Array.from(aNameTest);
-aArray.forEach( element => {
-  //console.log(element);
-  element.textContent = "red"; 
-});
 
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
-const ctatextClass = document.getElementById("cta-text");
-const ctatextH = document.createElement("h1"); 
+const ctasectionClass = document.querySelector(".cta h1");
+const ctatextH = document.createElement("div"); 
 ctatextH.textContent = "DOM IS AWESOME";
-ctatextClass.prepend(ctatextH);
+ctasectionClass.prepend(ctatextH);
 
-
+const buttonClass = document.querySelector(".cta button");
+const buttonText = document.createElement("div");
+buttonText.textContent = "Get Started";
+buttonClass.prepend(buttonText);
 
 let headerimg = document.getElementById("cta-img");
-headerimg.setAttribute('src', siteContent["cta"] ["img-src"]);
+headerimg.setAttribute('src', siteContent["cta"]["img-src"]);
+
+let textContentList = document.querySelectorAll(".text-content");
+
+textContentList[0].getElementsByTagName("h4")[0].innerHTML = siteContent["main-content"]["features-h4"];
+textContentList[0].getElementsByTagName("p")[0].innerHTML = siteContent["main-content"]["features-content"];
+textContentList[1].getElementsByTagName("h4")[0].innerHTML = siteContent["main-content"]["about-h4"];
+textContentList[1].getElementsByTagName("p")[0].innerHTML = siteContent["main-content"]["about-content"];
+textContentList[2].getElementsByTagName("h4")[0].innerHTML = siteContent["main-content"]["services-h4"];
+textContentList[2].getElementsByTagName("p")[0].innerHTML = siteContent["main-content"]["services-content"];
+textContentList[3].getElementsByTagName("h4")[0].innerHTML = siteContent["main-content"]["product-h4"];
+textContentList[3].getElementsByTagName("p")[0].innerHTML = siteContent["main-content"]["product-content"];
+textContentList[4].getElementsByTagName("h4")[0].innerHTML = siteContent["main-content"]["vision-h4"];
+textContentList[4].getElementsByTagName("p")[0].innerHTML = siteContent["main-content"]["vision-content"];
+
+//This wont work, maybe becuase it is a item element?
+//let midimg = document.getElementsByClassName(".middle-img");
+//midimg.setAttribute('src', siteContent["main-content"]["img-src"]);
+const midimg = document.querySelector('.middle-img');
+midimg.src = 'img/mid-page-accent.jpg';
+
+const textContent = document.querySelector(".text-content p");
+const pTextContentArray = Array.from(textContent);
+const pText = document.createElement("div");
+pTextContentArray.forEach( element => {
+  //console.log(element);
+  pText.textContent = "text"; 
+});
+
+
+
+
+
+
+
+
 
 
 
